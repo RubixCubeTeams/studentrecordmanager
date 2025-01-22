@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./src/assets/logo.webp" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+    <link href='https://unpkg .com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Record Management</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  </head>
+  <body>
+    
+    <div id="root"></div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      if (typeof AOS !== "undefined") {
+          AOS.init({ offset: 0 });
+      }
+    </script>
+    <script>
+      function hamburg() {
+          const navbar = document.querySelector(".dropdown");
+          navbar.style.transform = "translateY(0px)";
+      }
+      function cancel() {
+          const navbar = document.querySelector(".dropdown");
+          navbar.style.transform = "translateY(-500px)";
+      }
+    </script>
+    <script type="module" src="/src/main.jsx"></script>
+    <script>
+      const container = document.querySelector(".container"),
+          pwShowHide = document.querySelectorAll(".showHidePw"),
+          pwFields = document.querySelectorAll(".password"),
+          signUp = document.querySelector(".signup-link"),
+          login = document.querySelector(".login-link");
+
+     
+      // jQuery Filter Functionality
+      try {
+          $(document).ready(function () {
+              $(".filter-item").click(function () {
+                  const value = $(this).attr("data-filter");
+
+                  if (value === "all") {
+                      $(".post-box").show(1000);
+                  } else {
+                      $(".post-box").hide(1000);
+                      $(".post-box." + value).show(1000);
+                  }
+
+                  $(this).addClass("active-filter").siblings().removeClass("active-filter");
+              });
+          });
+      } catch (error) {
+          console.error("An error occurred:", error);
+      }
+    </script>
+  </body>
+</html>
